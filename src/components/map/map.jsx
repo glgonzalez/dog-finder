@@ -32,6 +32,7 @@ export const Map = () => {
   const resetMap = () => {
     setCoordinates([0,0]);
     setZoom([1]);
+    setShowPopup(false);
   }
 
   return (
@@ -45,7 +46,7 @@ export const Map = () => {
       </AppBar>
       <div className={classes.map}>
         <Mapbox 
-          style='mapbox://styles/mapbox/streets-v8'
+          style='mapbox://styles/mapbox/outdoors-v11'
           containerStyle={{width: '100%', height: '100%'}}
           renderChildrenInPortal={true}
           center={coordinates}
@@ -56,7 +57,7 @@ export const Map = () => {
             </Popup> : null}
             {showDogs ? <Layer
               type="symbol"
-              layout={{ "icon-image": "dog-park-11" }}>
+              layout={{ "icon-image": "dog-park-15" }}>
                 {dogs ? 
                   dogs.results.map(dog => (
                     <Feature 
@@ -76,7 +77,7 @@ export const Map = () => {
 
             {showParks ? <Layer
               type="symbol"
-              layout={{ "icon-image": "park-11" }}>
+              layout={{ "icon-image": "park-15" }}>
                 {parks ? 
                   parks.results.map(park => (
                     <Feature 
