@@ -9,8 +9,12 @@ export const useClient = (url) => {
   }, [url]);
 
   const getData = async () => {
-    const response = await fetch(url);
-    setResult(await response.json());
+    try {
+      const response = await fetch(url);
+      setResult(await response.json());
+    } catch (e) {
+      throw new Error(e);
+    }
   }
 
   return result;
