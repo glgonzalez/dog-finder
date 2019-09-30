@@ -81,7 +81,15 @@ export const Map = () => {
                   parks.results.map(park => (
                     <Feature 
                       coordinates={[park.longitude, park.latitude]} 
-                      key={park.name} />
+                      key={park.name} 
+                      onClick={() => {
+                        if(showPopup && popup && popup.name === park.name) {
+                          setShowPopup(false);
+                        } else {
+                          setShowPopup(true);
+                          setPopup(park);
+                        }
+                      }}/>
                   ))
                 : null}
             </Layer> : null}
